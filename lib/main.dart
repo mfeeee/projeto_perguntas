@@ -8,16 +8,7 @@ class _PerguntaAppState extends State<PerguntaApp> {
   
   var _perguntaSelecionada = 0;
 
-  void _responder() {
-    setState(() {
-      _perguntaSelecionada++;
-    });
-    print(_perguntaSelecionada);
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    final List<Map<String, Object>> perguntas = [
+  final List<Map<String, Object>> _perguntas = const [
       {
         'texto': 'O que significa PHP?',
         'respostas': ['PHP: Hyperspeed Performance', 'PHP: Hyperformat Programming', 'PHP: Hypertext Preprocessor', 'PHP: Hyperlink Pages'],
@@ -32,7 +23,23 @@ class _PerguntaAppState extends State<PerguntaApp> {
       },
     ];
 
-    List<String> respostas = perguntas[_perguntaSelecionada].cast()['respostas'];
+  void _responder() {
+    if (hasSelectedQuestion) {
+      setState(() {
+        _perguntaSelecionada++;
+      });
+    }
+  }
+
+  bool get hasSelectedQuestion {
+    return _perguntaSelecionada < _perguntas.length;
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    
+
+    List<String> respostas = hasSelectedQuestion ? _perguntas[_perguntaSelecionada].cast()['respostas'] : [];
 
     //for(String textoResp in respostas) {
     //  widgets.add(Resposta(texto: textoResp, onSelected: _responder));
@@ -43,12 +50,12 @@ class _PerguntaAppState extends State<PerguntaApp> {
         appBar: AppBar(
           title: Text('Introdução PHP'),
         ),
-        body: Column(
+        body: hasSelectedQuestion ? Column(
           children: [
-            Questao(texto: perguntas[_perguntaSelecionada]['texto'].toString()),
+            Questao(texto: _perguntas[_perguntaSelecionada]['texto'].toString()),
             ...respostas.map((t) => Resposta(texto: t, onSelected: _responder)).toList(),
           ],
-        ),
+        ) : null,
       ),
     );
   }
