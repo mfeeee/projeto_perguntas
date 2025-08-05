@@ -17,7 +17,7 @@ class _PerguntaAppState extends State<PerguntaApp> {
 
   @override
   Widget build(BuildContext context) {
-    final List<Map<String, dynamic>> perguntas = [
+    final List<Map<String, Object>> perguntas = [
       {
         'texto': 'O que significa PHP?',
         'respostas': ['PHP: Hyperspeed Performance', 'PHP: Hyperformat Programming', 'PHP: Hypertext Preprocessor', 'PHP: Hyperlink Pages'],
@@ -39,7 +39,7 @@ class _PerguntaAppState extends State<PerguntaApp> {
         ),
         body: Column(
           children: [
-            Questao(texto: perguntas[_perguntaSelecionada]['texto']),
+            Questao(texto: perguntas[_perguntaSelecionada]['texto'].toString()),
             Resposta(texto: 'Resposta 1', onSelected: _responder),
             Resposta(texto: 'Resposta 2', onSelected: _responder),
             Resposta(texto: 'Resposta 3', onSelected: _responder),
