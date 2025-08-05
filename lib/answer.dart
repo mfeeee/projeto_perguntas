@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 
-class Resposta extends StatelessWidget {
+class Answer extends StatelessWidget {
 
-  final String texto;
+  final String text;
   final void Function() onSelected;
 
-  const Resposta({super.key, required this.texto, required this.onSelected});
+  const Answer({super.key, required this.text, required this.onSelected});
 
   @override
   Widget build(BuildContext context) {
@@ -17,7 +17,7 @@ class Resposta extends StatelessWidget {
           backgroundColor: Colors.blue[800],
         ),
         onPressed: onSelected,
-        child: Text(texto),
+        child: Text(text),
       ),
     );
   }

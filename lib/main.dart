@@ -1,48 +1,48 @@
 import 'package:flutter/material.dart';
-import './questao.dart';
-import './resposta.dart';
+import './question.dart';
+import './answer.dart';
 
-main() => runApp(PerguntaApp());
+main() => runApp(QuestionApp());
 
-class _PerguntaAppState extends State<PerguntaApp> {
+class _QuestionAppState extends State<QuestionApp> {
   
-  var _perguntaSelecionada = 0;
+  var _selectedQuestion = 0;
 
-  final List<Map<String, Object>> _perguntas = const [
+  final List<Map<String, Object>> _questions = const [
       {
-        'texto': 'O que significa PHP?',
-        'respostas': ['PHP: Hyperspeed Performance', 'PHP: Hyperformat Programming', 'PHP: Hypertext Preprocessor', 'PHP: Hyperlink Pages'],
+        'text': 'O que significa PHP?',
+        'answers': ['PHP: Hyperspeed Performance', 'PHP: Hyperformat Programming', 'PHP: Hypertext Preprocessor', 'PHP: Hyperlink Pages'],
       },
       {
-        'texto': 'Qual afirmação NÃO é verdadeira sobre PHP:',
-        'respostas': ['PHP é uma biblioteca de código Front End', 'PHP pode gerar conteúdo de página dinâmico', 'PHP é gratuito'],
+        'text': 'Qual afirmação NÃO é verdadeira sobre PHP:',
+        'answers': ['PHP é uma biblioteca de código Front End', 'PHP pode gerar conteúdo de página dinâmico', 'PHP é gratuito'],
       },
       {
-        'texto': 'Qual é a extensão de arquivo correta para arquivos PHP?',
-        'respostas': ['.php', '.ps', '.hpp'],
+        'text': 'Qual é a extensão de arquivo correta para arquivos PHP?',
+        'answers': ['.php', '.ps', '.hpp'],
       },
     ];
 
-  void _responder() {
+  void _answer() {
     if (hasSelectedQuestion) {
       setState(() {
-        _perguntaSelecionada++;
+        _selectedQuestion++;
       });
     }
   }
 
   bool get hasSelectedQuestion {
-    return _perguntaSelecionada < _perguntas.length;
+    return _selectedQuestion < _questions.length;
   }
 
   @override
   Widget build(BuildContext context) {
     
 
-    List<String> respostas = hasSelectedQuestion ? _perguntas[_perguntaSelecionada].cast()['respostas'] : [];
+    List<String> answers = hasSelectedQuestion ? _questions[_selectedQuestion].cast()['answers'] : [];
 
-    //for(String textoResp in respostas) {
-    //  widgets.add(Resposta(texto: textoResp, onSelected: _responder));
+    //for(String textResp in answers) {
+    //  widgets.add(Resposta(text: textResp, onSelected: _answer));
     //}
 
     return MaterialApp(
@@ -52,8 +52,8 @@ class _PerguntaAppState extends State<PerguntaApp> {
         ),
         body: hasSelectedQuestion ? Column(
           children: [
-            Questao(texto: _perguntas[_perguntaSelecionada]['texto'].toString()),
-            ...respostas.map((t) => Resposta(texto: t, onSelected: _responder)).toList(),
+            Question(text: _questions[_selectedQuestion]['text'].toString()),
+            ...answers.map((t) => Answer(text: t, onSelected: _answer)).toList(),
           ],
         ) : null,
       ),
@@ -61,10 +61,10 @@ class _PerguntaAppState extends State<PerguntaApp> {
   }
 }
 
-class PerguntaApp extends StatefulWidget {
-  const PerguntaApp({super.key});
+class QuestionApp extends StatefulWidget {
+  const QuestionApp({super.key});
 
   @override
-  State<PerguntaApp> createState() => _PerguntaAppState();
+  State<QuestionApp> createState() => _QuestionAppState();
 
 }
