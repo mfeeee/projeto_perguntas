@@ -30,9 +30,9 @@ class _PerguntaAppState extends State<PerguntaApp> {
         body: Column(
           children: [
             Questao(texto: perguntas[_perguntaSelecionada]),
-            Resposta(texto: 'Resposta 1'),
-            Resposta(texto: 'Resposta 2'),
-            Resposta(texto: 'Resposta 3'),
+            Resposta(texto: 'Resposta 1', onSelected: _responder),
+            Resposta(texto: 'Resposta 2', onSelected: _responder),
+            Resposta(texto: 'Resposta 3', onSelected: _responder),
           ],
         ),
       ),
