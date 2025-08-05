@@ -55,7 +55,12 @@ class _QuestionAppState extends State<QuestionApp> {
             Question(text: _questions[_selectedQuestion]['text'].toString()),
             ...answers.map((t) => Answer(text: t, onSelected: _answer)).toList(),
           ],
-        ) : null,
+        ) : Center(
+          child: Text(
+            'Parabéns!', 
+            style: TextStyle(fontSize: 28),
+            ),
+        ),
       ),
     );
   }
