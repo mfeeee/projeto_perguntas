@@ -37,10 +37,6 @@ class _QuestionAppState extends State<QuestionApp> {
 
   @override
   Widget build(BuildContext context) {
-    //for(String textResp in answers) {
-    //  widgets.add(Resposta(text: textResp, onSelected: _answer));
-    //}
-
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(
