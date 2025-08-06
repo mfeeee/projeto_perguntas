@@ -22,12 +22,14 @@ Este é um aplicativo de perguntas e respostas que apresenta um quiz sobre PHP c
 - Material Design: Para componentes de interface
 
 ## Estrutura do Projeto
+```
 lib/
 ├── main.dart              # Arquivo principal da aplicação
 ├── question.dart          # Widget para exibir perguntas
 ├── answer.dart         # Widget para botões de resposta
 ├── result.dart        # Widget para exibir resultado final
 └── quiz.dart        # Widget para exibir questionário
+```
 
 ## Como Executar
 
@@ -38,15 +40,15 @@ lib/
 
 ### Passos
 1. Clone o repositório:
-´´´bash
+```bash
 git clone <url-do-repositorio>
-cd projeto_perguntas´´´
+cd projeto_perguntas```
 2. Instale as dependências:
-´´´bash 
-flutter pub get´´´
+```bash 
+flutter pub get```
 3. Execute o aplicativo:
-´´´bash 
-flutter run´´´
+```bash 
+flutter run```
 
 ## Como Usar
 
