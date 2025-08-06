@@ -38,10 +38,9 @@ class Result extends StatelessWidget {
               ),
           ),
         ),
-        ElevatedButton(
-          style: ElevatedButton.styleFrom(
-            foregroundColor: Colors.white,
-            backgroundColor: Colors.blue[800],
+        TextButton(
+          style: TextButton.styleFrom(
+            foregroundColor: Colors.blue[800],
           ),
           onPressed: onRestart,
           child: Text(
