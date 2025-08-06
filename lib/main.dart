@@ -7,28 +7,45 @@ main() => runApp(QuestionApp());
 class _QuestionAppState extends State<QuestionApp> {
   
   var _selectedQuestion = 0;
+  var _totalScore = 0;
 
   final List<Map<String, Object>> _questions = const [
       {
         'text': 'O que significa PHP?',
-        'answers': ['PHP: Hyperspeed Performance', 'PHP: Hyperformat Programming', 'PHP: Hypertext Preprocessor', 'PHP: Hyperlink Pages'],
+        'answers': [
+          {'text': 'PHP: Hyperspeed Performance', 'score': 0}, 
+          {'text': 'PHP: Hyperformat Programming', 'score': 0}, 
+          {'text': 'PHP: Hypertext Preprocessor', 'score': 100}, 
+          {'text': 'PHP: Hyperlink Pages', 'score': 0},
+        ],
       },
       {
         'text': 'Qual afirmação NÃO é verdadeira sobre PHP:',
-        'answers': ['PHP é uma biblioteca de código Front End', 'PHP pode gerar conteúdo de página dinâmico', 'PHP é gratuito'],
+        'answers': [
+          {'text': 'PHP é uma biblioteca de código Front End', 'score': 100}, 
+          {'text': 'PHP pode gerar conteúdo de página dinâmico', 'score': 0}, 
+          {'text': 'PHP é gratuito', 'score': 0}, 
+        ],
       },
       {
         'text': 'Qual é a extensão de arquivo correta para arquivos PHP?',
-        'answers': ['.php', '.ps', '.hpp'],
+        'answers': [
+          {'text': '.php', 'score': 100},  
+          {'text': '.ps', 'score': 0},  
+          {'text': '.hpp', 'score': 0}, 
+        ],
       },
     ];
 
-  void _answer() {
+  void _answer(int score) {
     if (hasSelectedQuestion) {
       setState(() {
         _selectedQuestion++;
+        _totalScore += score;
       });
     }
+
+    print(_totalScore);
   }
 
   bool get hasSelectedQuestion {
