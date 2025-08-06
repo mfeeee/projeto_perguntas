@@ -44,8 +44,6 @@ class _QuestionAppState extends State<QuestionApp> {
         _totalScore += score;
       });
     }
-
-    print(_totalScore);
   }
 
   bool get hasSelectedQuestion {
