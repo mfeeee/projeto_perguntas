@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-import './question.dart';
-import './answer.dart';
 import './result.dart';
+import './quiz.dart';
 
 main() => runApp(QuestionApp());
 
@@ -38,10 +37,6 @@ class _QuestionAppState extends State<QuestionApp> {
 
   @override
   Widget build(BuildContext context) {
-    
-
-    List<String> answers = hasSelectedQuestion ? _questions[_selectedQuestion].cast()['answers'] : [];
-
     //for(String textResp in answers) {
     //  widgets.add(Resposta(text: textResp, onSelected: _answer));
     //}
@@ -51,11 +46,7 @@ class _QuestionAppState extends State<QuestionApp> {
         appBar: AppBar(
           title: Text('Introdução PHP'),
         ),
-        body: hasSelectedQuestion ? Column(
-          children: [
-            Question(text: _questions[_selectedQuestion]['text'].toString()),
-            ...answers.map((t) => Answer(text: t, onSelected: _answer)).toList(),
-          ],
+        body: hasSelectedQuestion ? Quiz(questions: _questions, selectedQuestion: _selectedQuestion, onAnswered: _answer,
         ) : Result(),
       ),
     );
