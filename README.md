@@ -42,13 +42,16 @@ lib/
 1. Clone o repositório:
 ```bash
 git clone <url-do-repositorio>
-cd projeto_perguntas```
+cd projeto_perguntas
+```
 2. Instale as dependências:
 ```bash 
-flutter pub get```
+flutter pub get
+```
 3. Execute o aplicativo:
 ```bash 
-flutter run```
+flutter run
+```
 
 ## Como Usar
 
