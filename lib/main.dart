@@ -60,7 +60,7 @@ class _QuestionAppState extends State<QuestionApp> {
           title: Text('Introdução PHP'),
         ),
         body: hasSelectedQuestion ? Quiz(questions: _questions, selectedQuestion: _selectedQuestion, onAnswered: _answer,
-        ) : Result(),
+        ) : Result(score: _totalScore),
       ),
     );
   }
