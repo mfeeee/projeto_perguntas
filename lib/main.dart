@@ -46,6 +46,13 @@ class _QuestionAppState extends State<QuestionApp> {
     }
   }
 
+  void _restartQuiz() {
+    setState(() {
+      _selectedQuestion = 0;
+      _totalScore = 0;
+    });
+  }
+
   bool get hasSelectedQuestion {
     return _selectedQuestion < _questions.length;
   }
@@ -58,7 +65,7 @@ class _QuestionAppState extends State<QuestionApp> {
           title: Text('Introdução PHP'),
         ),
         body: hasSelectedQuestion ? Quiz(questions: _questions, selectedQuestion: _selectedQuestion, onAnswered: _answer,
-        ) : Result(score: _totalScore),
+        ) : Result(score: _totalScore, onRestart: _restartQuiz),
       ),
     );
   }
