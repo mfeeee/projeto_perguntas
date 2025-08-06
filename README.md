@@ -41,7 +41,7 @@ lib/
 ### Passos
 1. Clone o repositório:
 ```bash
-git clone <url-do-repositorio>
+git clone <https://github.com/mfeeee/projeto_perguntas>
 cd projeto_perguntas
 ```
 2. Instale as dependências:
